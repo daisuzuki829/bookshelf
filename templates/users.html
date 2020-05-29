@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../assets/css/table.css" rel="stylesheet">
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Nickname</th>
+        <th>Age</th>
+        <th>Role</th>
+    </tr>
+    {{ range .users }}
+        <tr>
+            <td align="right" nowrap>{{ .Nickname }}</td>
+            <td valign="top">{{ .Age }}</td>
+            <td valign="top">{{ .Role }}</td>
+        </tr>
+    {{end}}
+</table>
+
+</body>
+</html>
