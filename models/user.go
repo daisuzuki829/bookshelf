@@ -1,6 +1,8 @@
 package models
 
 import (
+	"fmt"
+	"github.com/davecgh/go-spew/spew"
 	"github.com/jinzhu/gorm"
 )
 
@@ -35,18 +37,27 @@ func (r *UserRepository) Add(user *User) {
 	if err != nil {
 		panic(err)
 	}
-	db.Create(&User{})
+
+	fmt.Printf("user : ")
+	spew.Dump(user)
+	fmt.Printf("\n")
+
+	db.Create(user)
+
+	fmt.Printf("user : ")
+	spew.Dump(user)
+	fmt.Printf("\n")
+
 	defer db.Close()
 }
 
 //DB更新
-func (r *UserRepository) Edit(user *User) {
+func (r *UserRepository) Edit(user User) {
 	db, err := gorm.Open(dialect, dbName)
 	if err != nil {
 		panic(err)
 	}
-	db.First(&user, user.ID)
-	db.Save(&user)
+	db.Save(user)
 	db.Close()
 }
 
@@ -73,3 +84,16 @@ func (r *UserRepository) GetOne(id int) User {
 	db.Close()
 	return user
 }
+
+//DB削除
+func (r *UserRepository) Delete(id int) {
+	db, err := gorm.Open(dialect, dbName)
+	if err != nil {
+		panic(err)
+	}
+	var user User
+	db.First(&user, id)
+	db.Delete(&user)
+	db.Close()
+}
+

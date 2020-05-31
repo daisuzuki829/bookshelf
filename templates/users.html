@@ -2,25 +2,130 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Users</title>
     <link href="../assets/css/table.css" rel="stylesheet">
+    <link href="../assets/css/btn.css" rel="stylesheet">
+    <link href="../assets/css/menu_sidebar.css" rel="stylesheet">
+    <link href="../assets/css/from.css" rel="stylesheet">
 </head>
 <body>
+
+<div class="cp_navi">
+    <ul>
+        <li><a href="http://localhost:8080/index">Home</a></li>
+        <li>
+            <a href="http://localhost:8080/books">Books <span class="caret"></span></a>
+            <div>
+                <ul>
+                    <li><a href="http://localhost:8080/book/add">Add</a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a href="http://localhost:8080/users">Users <span class="caret"></span></a>
+            <div>
+                <ul>
+                    <li><a href="http://localhost:8080/books">Add</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Help</a></li>
+    </ul>
+</div>
+
+<form action="/user/add" method="post">
+    <div class="form-inner">
+        <h2>Add User</h2>
+        <div>
+            <div class="underline">
+                <input type="text" tabindex="1" name="nickname" id="nickname"/>
+                <label for="nickname">Nickname</label>
+                <span class="placeholder">Nickname</span>
+            </div>
+        </div>
+        <div>
+            <div class="underline">
+                <input type="text" tabindex="1" name="password" id="password"/>
+                <label for="password">Password</label>
+                <span class="placeholder">Password</span>
+            </div>
+        </div>
+        <div>
+            <div class="underline">
+                <input type="text" tabindex="1" name="age" id="age"/>
+                <label for="publisher">Age</label>
+                <span class="placeholder">Age</span>
+            </div>
+        </div>
+        <div>
+            <div class="underline">
+                <input type="text" tabindex="1" name="role" id="role"/>
+                <label for="publisher">Role</label>
+                <span class="placeholder">Role</span>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <div>
+                <button type="button" name="clear" tabindex="13">Clear</button>
+            </div>
+            <div>
+                <button type="submit" tabindex="14">Send</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+{{/*<form>*/}}
+{{/*    <table>*/}}
+{{/*        <tr>*/}}
+{{/*            <th>Nickname</th>*/}}
+{{/*            <th>Password</th>*/}}
+{{/*            <th>Age</th>*/}}
+{{/*            <th>Role</th>*/}}
+{{/*            <th>Edit</th>*/}}
+{{/*            <th>Delete</th>*/}}
+{{/*        </tr>*/}}
+{{/*        {{ range .users }}*/}}
+{{/*            <tr>*/}}
+{{/*                <td>{{ .Nickname }}</td>*/}}
+{{/*                <td>{{ .Password }}</td>*/}}
+{{/*                <td>{{ .Age }}</td>*/}}
+{{/*                <td>{{ .Role }}</td>*/}}
+{{/*                <td>*/}}
+{{/*                    <a href="/user/user_edit/{{.ID}}" class="btn-yellow">Edit</a>*/}}
+{{/*                    <button formaction="/user/user_edit/{{.ID}}" class="btn-yellow">Edit</button>*/}}
+{{/*                </td>*/}}
+{{/*                <td>*/}}
+{{/*                    <button formmethod="delete" formaction="/user/delete/{{.ID}}" class="btn-blue" onClick="alert('本当に削除してよろしいですか？');">Delete</button>*/}}
+{{/*                </td>*/}}
+{{/*            </tr>*/}}
+{{/*        {{end}}*/}}
+{{/*    </table>*/}}
+{{/*</form>*/}}
 
 <table>
     <tr>
         <th>Nickname</th>
+        <th>Password</th>
         <th>Age</th>
         <th>Role</th>
+        <th>Edit</th>
     </tr>
     {{ range .users }}
         <tr>
-            <td align="right" nowrap>{{ .Nickname }}</td>
-            <td valign="top">{{ .Age }}</td>
-            <td valign="top">{{ .Role }}</td>
+            <td>{{ .Nickname }}</td>
+            <td>{{ .Password }}</td>
+            <td>{{ .Age }}</td>
+            <td>{{ .Role }}</td>
+            <td>
+                <a href="/user/user_edit/{{.ID}}" class="btn-yellow">Edit</a>
+            </td>
         </tr>
     {{end}}
 </table>
 
 </body>
 </html>
+

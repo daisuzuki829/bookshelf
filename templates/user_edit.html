@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+    <link href="../assets/css/from.css" rel="stylesheet">
+</head>
+<body>
+
+<form method="post" action="/user/edit_ok/{{.user.ID}}">
+    <div class="form-inner">
+        <h2>Edit User</h2>
+        <div>
+            <div class="underline">
+                <input type="text" tabindex="1" name="title" id="title" value="{{.user.Nickname}}"/>
+                <label for="title">Nickname</label>
+                <span class="placeholder">Nickname</span>
+            </div>
+        </div>
+        <div>
+            <div class="underline">
+                <input type="text" tabindex="1" name="authors" id="authors" value="{{.user.Password}}"/>
+                <label for="authors">Password</label>
+                <span class="placeholder">Password</span>
+            </div>
+        </div>
+        <div>
+            <div class="underline">
+                <input type="text" tabindex="1" name="publisher" id="publisher" value="{{.user.Age}}"/>
+                <label for="publisher">Age</label>
+                <span class="placeholder">Age</span>
+            </div>
+        </div>
+        <div>
+            <div class="underline">
+                <input type="text" tabindex="1" name="publisher" id="publisher" value="{{.user.Role}}"/>
+                <label for="publisher">Role</label>
+                <span class="placeholder">Role</span>
+            </div>
+        </div>
+        <p><input type="submit" value="Send"></p>
+    </div>
+</form>
+
+
+</body>
+</html>

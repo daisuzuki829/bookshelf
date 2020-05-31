@@ -2,25 +2,99 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Books</title>
     <link href="../assets/css/table.css" rel="stylesheet">
+    <link href="../assets/css/btn.css" rel="stylesheet">
+    <link href="../assets/css/menu_sidebar.css" rel="stylesheet">
+    <link href="../assets/css/from.css" rel="stylesheet">
 </head>
 <body>
 
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Authors</th>
-        <th>Publisher</th>
-    </tr>
-    {{ range .books }}
+<div class="cp_navi">
+    <ul>
+        <li><a href="http://localhost:8080/index">Home</a></li>
+        <li>
+            <a href="http://localhost:8080/books">Books <span class="caret"></span></a>
+            <div>
+                <ul>
+                    <li><a href="http://localhost:8080/book/add">Add</a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a href="http://localhost:8080/users">Users <span class="caret"></span></a>
+            <div>
+                <ul>
+                    <li><a href="http://localhost:8080/books">Add</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Help</a></li>
+    </ul>
+</div>
+
+<form action="/book/add" method="post">
+    <div class="form-inner">
+        <h2>Add Book</h2>
+        <div>
+            <div class="underline">
+                <input type="text" tabindex="1" name="title" id="title"/>
+                <label for="title">Title</label>
+                <span class="placeholder">Title</span>
+            </div>
+        </div>
+        <div>
+            <div class="underline">
+                <input type="text" tabindex="1" name="authors" id="authors"/>
+                <label for="authors">Authors</label>
+                <span class="placeholder">Authors</span>
+            </div>
+        </div>
+        <div>
+            <div class="underline">
+                <input type="text" tabindex="1" name="publisher" id="publisher"/>
+                <label for="publisher">Publisher</label>
+                <span class="placeholder">Publisher</span>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <div>
+                <button type="button" name="clear" tabindex="13">Clear</button>
+            </div>
+            <div>
+                <button type="submit" tabindex="14">Send</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form>
+    <table>
         <tr>
-            <td align="right" nowrap>{{ .Title }}</td>
-            <td valign="top">{{ .Authors }}</td>
-            <td valign="top">{{ .Publisher }}</td>
+            <th>Title</th>
+            <th>Authors</th>
+            <th>Publisher</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
-    {{end}}
-</table>
+        {{ range .books }}
+            <tr>
+                <td>{{ .Title }}</td>
+                <td>{{ .Authors }}</td>
+                <td>{{ .Publisher }}</td>
+                <td>
+                    <a href="/book/book_edit/{{.ID}}" class="btn-yellow">Edit</a>
+{{/*                    <button type="submit"formmethod="get" formaction="/user/book_edit/{{.ID}}" class="btn-yellow">Edit</button>*/}}
+                </td>
+                <td>
+                    <button type="submit"formmethod="delete" formaction="/book/delete/{{.ID}}" class="btn-blue" onClick="alert('本当に削除してよろしいですか？');">Delete</button>
+                </td>
+            </tr>
+        {{end}}
+    </table>
+</form>
 
 
 </body>

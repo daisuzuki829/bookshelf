@@ -19,18 +19,6 @@ type Book struct {
 	IgnoreMe     string  `gorm:"-"`
 }
 
-//DB削除
-func (r *BookRepository) Delete(id int) {
-	db, err := gorm.Open(dialect, dbName)
-	if err != nil {
-		panic(err)
-	}
-	var book Book
-	db.First(&book, id)
-	db.Delete(&book)
-	db.Close()
-}
-
 // NewBook ...
 func NewBook(name string) Book {
 	return Book{
@@ -54,18 +42,17 @@ func (r *BookRepository) Add(book *Book) {
 	if err != nil {
 		panic(err)
 	}
-	db.Create(&Book{})
+	db.Create(book)
 	defer db.Close()
 }
 
 //DB更新
-func (r *BookRepository) Edit(book *Book) {
+func (r *BookRepository) Edit(book Book) {
 	db, err := gorm.Open(dialect, dbName)
 	if err != nil {
 		panic(err)
 	}
-	db.First(&book, book.ID)
-	db.Save(&book)
+	db.Save(book)
 	db.Close()
 }
 
@@ -92,3 +79,16 @@ func (r *BookRepository) GetOne(id int) Book {
 	db.Close()
 	return book
 }
+
+//DB削除
+func (r *BookRepository) Delete(id int) {
+	db, err := gorm.Open(dialect, dbName)
+	if err != nil {
+		panic(err)
+	}
+	var book Book
+	db.First(&book, id)
+	db.Delete(&book)
+	db.Close()
+}
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Book</title>
+    <link href="../assets/css/from.css" rel="stylesheet">
+</head>
+<body>
+
+<form method="post" action="/book/edit_ok/{{.book.ID}}">
+    <div class="form-inner">
+        <h2>Edit Book</h2>
+        <div>
+            <div class="underline">
+                <input type="text" tabindex="1" name="title" id="title" value="{{.book.Title}}"/>
+                <label for="title">Title</label>
+                <span class="placeholder">Title</span>
+            </div>
+        </div>
+        <div>
+            <div class="underline">
+                <input type="text" tabindex="1" name="authors" id="authors" value="{{.book.Authors}}"/>
+                <label for="authors">Authors</label>
+                <span class="placeholder">Authors</span>
+            </div>
+        </div>
+        <div>
+            <div class="underline">
+                <input type="text" tabindex="1" name="publisher" id="publisher" value="{{.book.Publisher}}"/>
+                <label for="publisher">Publisher</label>
+                <span class="placeholder">Publisher</span>
+            </div>
+        </div>
+        <p><input type="submit" value="Send"></p>
+    </div>
+</form>
+
+
+</body>
+</html>
