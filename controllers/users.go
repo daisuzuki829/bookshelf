@@ -1,9 +1,7 @@
 package controllers
 
 import (
-	"fmt"
 	"github.com/daisuzuki829/bookshelf/models"
-	"github.com/davecgh/go-spew/spew"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
@@ -29,10 +27,6 @@ func (h *Handler) AddUser(c *gin.Context) {
 	role, _     := c.GetPostForm("role")
 
 	r.Add(&models.User{Nickname: nickname, Password: password, Age: age, Role: role})
-
-	fmt.Printf("user : ")
-	spew.Dump(&models.User{Nickname: nickname, Password: password, Age: age, Role: role})
-	fmt.Printf("\n")
 
 	c.Redirect(http.StatusMovedPermanently, "/users")
 }

@@ -12,33 +12,25 @@
         <h2>Edit User</h2>
         <div>
             <div class="underline">
-                <input type="text" tabindex="1" name="title" id="title" value="{{.user.Nickname}}"/>
-                <label for="title">Nickname</label>
-                <span class="placeholder">Nickname</span>
+                <input type="text" tabindex="1" name="nickname" id="nickname" value="{{.user.Nickname}}" placeholder="Nickname"/>
             </div>
         </div>
         <div>
             <div class="underline">
-                <input type="text" tabindex="1" name="authors" id="authors" value="{{.user.Password}}"/>
-                <label for="authors">Password</label>
-                <span class="placeholder">Password</span>
+                <input type="password" tabindex="1" name="password" id="password" value="{{.user.Password}}" placeholder="Password"/>
             </div>
         </div>
         <div>
             <div class="underline">
-                <input type="text" tabindex="1" name="publisher" id="publisher" value="{{.user.Age}}"/>
-                <label for="publisher">Age</label>
-                <span class="placeholder">Age</span>
+                <input type="text" tabindex="1" name="age" id="age" value="{{.user.Age}}" placeholder="Age"/>
             </div>
         </div>
         <div>
             <div class="underline">
-                <input type="text" tabindex="1" name="publisher" id="publisher" value="{{.user.Role}}"/>
-                <label for="publisher">Role</label>
-                <span class="placeholder">Role</span>
+                <input type="text" tabindex="1" name="role" id="role" value="{{.user.Role}}" placeholder="Role"/>
             </div>
         </div>
-        <p><input type="submit" value="Send"></p>
+        <p><input type="submit" value="Edit"></p>
     </div>
 </form>
 

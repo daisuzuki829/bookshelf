@@ -1,8 +1,6 @@
 package models
 
 import (
-	"fmt"
-	"github.com/davecgh/go-spew/spew"
 	"github.com/jinzhu/gorm"
 )
 
@@ -38,15 +36,7 @@ func (r *UserRepository) Add(user *User) {
 		panic(err)
 	}
 
-	fmt.Printf("user : ")
-	spew.Dump(user)
-	fmt.Printf("\n")
-
 	db.Create(user)
-
-	fmt.Printf("user : ")
-	spew.Dump(user)
-	fmt.Printf("\n")
 
 	defer db.Close()
 }

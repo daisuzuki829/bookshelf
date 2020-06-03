@@ -5,8 +5,6 @@
 - 貸し出し履歴は，利用者(user)，本(book)，貸し出し日(lendDate)，返却日(returnDate)を持つ．
 
 
-
-
 ## CMS
 
 ### ＊ http://localhost:8080/index

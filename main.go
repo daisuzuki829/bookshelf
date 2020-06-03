@@ -6,6 +6,5 @@ import (
 )
 
 func main() {
-	dbConn := db.Init()
-	routes.Handler(dbConn)
+	routes.Handler(db.Init())
 }

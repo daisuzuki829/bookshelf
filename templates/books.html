@@ -34,28 +34,22 @@
     </ul>
 </div>
 
-<form action="/book/add" method="post">
+<form method="post" action="/book/add">
     <div class="form-inner">
         <h2>Add Book</h2>
         <div>
             <div class="underline">
-                <input type="text" tabindex="1" name="title" id="title"/>
-                <label for="title">Title</label>
-                <span class="placeholder">Title</span>
+                <input type="text" tabindex="1" name="title" id="title" placeholder="Title"/>
             </div>
         </div>
         <div>
             <div class="underline">
-                <input type="text" tabindex="1" name="authors" id="authors"/>
-                <label for="authors">Authors</label>
-                <span class="placeholder">Authors</span>
+                <input type="text" tabindex="1" name="authors" id="authors" placeholder="Authors"/>
             </div>
         </div>
         <div>
             <div class="underline">
-                <input type="text" tabindex="1" name="publisher" id="publisher"/>
-                <label for="publisher">Publisher</label>
-                <span class="placeholder">Publisher</span>
+                <input type="text" tabindex="1" name="publisher" id="publisher" placeholder="Publisher"/>
             </div>
         </div>
 
@@ -64,7 +58,7 @@
                 <button type="button" name="clear" tabindex="13">Clear</button>
             </div>
             <div>
-                <button type="submit" tabindex="14">Send</button>
+                <button type="submit" tabindex="14">Add</button>
             </div>
         </div>
     </div>
@@ -85,8 +79,7 @@
                 <td>{{ .Authors }}</td>
                 <td>{{ .Publisher }}</td>
                 <td>
-                    <a href="/book/book_edit/{{.ID}}" class="btn-yellow">Edit</a>
-{{/*                    <button type="submit"formmethod="get" formaction="/user/book_edit/{{.ID}}" class="btn-yellow">Edit</button>*/}}
+                    <a href="/book/edit/{{.ID}}" class="btn-yellow">Edit</a>
                 </td>
                 <td>
                     <button type="submit"formmethod="delete" formaction="/book/delete/{{.ID}}" class="btn-blue" onClick="alert('本当に削除してよろしいですか？');">Delete</button>
