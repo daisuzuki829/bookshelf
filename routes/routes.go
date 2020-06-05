@@ -38,6 +38,8 @@ func Handler(dbConn *gorm.DB) {
 		rUser.DELETE("/delete/:id", handler.DeleteUser)
 	}
 
+	r.GET("/rental_histories", handler.GetAllRentalHistories)
+
 	r.GET("/index", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", gin.H{
 			"title": "TITLE",

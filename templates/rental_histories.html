@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rental Histories</title>
+    <link href="../assets/css/table.css" rel="stylesheet">
+    <link href="../assets/css/btn.css" rel="stylesheet">
+    <link href="../assets/css/menu_sidebar.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="cp_navi">
+    <ul>
+        <li><a href="http://localhost:8080/index">Home</a></li>
+        <li>
+            <a href="http://localhost:8080/books">Books <span class="caret"></span></a>
+            <div>
+                <ul>
+                    <li><a href="http://localhost:8080/book/add">Add</a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a href="http://localhost:8080/users">Users <span class="caret"></span></a>
+            <div>
+                <ul>
+                    <li><a href="http://localhost:8080/books">Add</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="http://localhost:8080/rental_histories">Rental Histories</a></li>
+        <li><a href="#">Help</a></li>
+    </ul>
+</div>
+
+<form>
+    <table>
+        <tr>
+            <th>User</th>
+            <th>Book</th>
+            <th>Lend date</th>
+            <th>Return deadline</th>
+            <th>Return date</th>
+        </tr>
+        {{ range .rental_histories }}
+            <tr>
+                <td>{{ .UserID }}</td>
+                <td>{{ .BookID }}</td>
+                <td>{{ .LendDate }}</td>
+                <td>{{ .ReturnDeadline }}</td>
+                <td>{{ .ReturnDate }}</td>
+            </tr>
+        {{end}}
+    </table>
+</form>
+
+
+</body>
+</html>

@@ -13,13 +13,6 @@ type User struct {
 	IgnoreMe     string  `gorm:"-"`
 }
 
-// NewUser ...
-func NewUser(nickname string) User {
-	return User{
-		Nickname: nickname,
-	}
-}
-
 // UserRepository is
 type UserRepository struct {
 }

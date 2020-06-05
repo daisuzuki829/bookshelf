@@ -19,13 +19,6 @@ type Book struct {
 	IgnoreMe     string  `gorm:"-"`
 }
 
-// NewBook ...
-func NewBook(name string) Book {
-	return Book{
-		Title: name,
-	}
-}
-
 // BookRepository is
 type BookRepository struct {
 }
